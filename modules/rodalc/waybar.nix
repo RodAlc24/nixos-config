@@ -21,7 +21,7 @@
             "disk"
             "memory"
             "cpu"
-            "battry"
+            "battery"
             "custom/power"
           ];
 
