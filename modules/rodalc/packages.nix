@@ -17,6 +17,9 @@
       wl-clipboard
       kitty
       typst
+
+      age
+      sops
     ];
   };
 }

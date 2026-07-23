@@ -5,6 +5,7 @@
 
     home-manager = {
       extraSpecialArgs = { inherit inputs; };
+      sharedModules = [ inputs.sops-nix.homeManagerModules.sops ];
       users.rodalc = self.modules.homeManager.rodalc;
     };
   };

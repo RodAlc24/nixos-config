@@ -5,6 +5,7 @@
     system = "x86_64-linux";
     modules = [
       ../../hosts/laptop/hardware-configuration.nix
+      inputs.sops-nix.nixosModules.sops
       self.modules.nixos.laptop
     ];
   };

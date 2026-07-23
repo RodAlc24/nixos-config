@@ -1,0 +1,7 @@
+keys:
+  - &host_laptop age1gy2r9dtrzg4744c8m97trly26fn25mrecwdjaeu9qwesscvee38shfjk22
+creation_rules:
+  - path_regex: secrets.json$
+    key_groups:
+    - age:
+      - *host_laptop
