@@ -1,14 +1,17 @@
 {
   flake.modules.homeManager.rodalc = { config, ... }: {
-    programs.ssh.enable = true;
-    programs.ssh.enableDefaultConfig = false;
+    programs.ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+      settings."*" = {
+        UserKnownHostsFile = "~/.ssh/known_hosts";
+      };
+      includes = [ "${config.sops.templates."ssh_config".path}" ];
+    };
 
     sops.templates."ssh_config" = {
-      path = "/home/rodalc/.ssh/config";
+      path = "/home/rodalc/.ssh/config_sops";
       content = ''
-        Host *
-          UserKnownHostsFile ~/.ssh/known_hosts
-
         Host ${config.sops.placeholder."ssh1/name"}
           HostName ${config.sops.placeholder."ssh1/host"}
           User ${config.sops.placeholder."ssh1/user"}
