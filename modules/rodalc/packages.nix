@@ -6,6 +6,7 @@
       grml-zsh-config
       brightnessctl
       grim
+      slurp
       pulseaudio
       signal-desktop
       discord

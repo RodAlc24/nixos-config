@@ -236,6 +236,8 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 
 hl.bind("XF86PowerOff",  hl.dsp.exec_cmd("wlogout"))
 
+hl.bind("Print",  hl.dsp.exec_cmd("grim ~/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
+hl.bind("XF86Launch1",  hl.dsp.exec_cmd("slurp | grim -g - ~/screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"))
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
