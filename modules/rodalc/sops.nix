@@ -13,6 +13,39 @@
       secrets.gotify_token = {
         path = "${config.sops.defaultSymlinkPath}/gotify_token";
       };
+
+      secrets."ssh1/name" = {
+        path = "${config.sops.defaultSymlinkPath}/ssh1/name";
+      };
+      secrets."ssh1/host" = {
+        path = "${config.sops.defaultSymlinkPath}/ssh1/host";
+      };
+      secrets."ssh1/user" = {
+        path = "${config.sops.defaultSymlinkPath}/ssh1/user";
+      };
+      secrets."ssh1/port" = {
+        path = "${config.sops.defaultSymlinkPath}/ssh1/port";
+      };
+
+      secrets."ssh2/name" = {
+        path = "${config.sops.defaultSymlinkPath}/ssh2/name";
+      };
+      secrets."ssh2/host" = {
+        path = "${config.sops.defaultSymlinkPath}/ssh2/host";
+      };
+      secrets."ssh2/user" = {
+        path = "${config.sops.defaultSymlinkPath}/ssh2/user";
+      };
+
+      secrets."ssh3/name" = {
+        path = "${config.sops.defaultSymlinkPath}/ssh3/name";
+      };
+      secrets."ssh3/host" = {
+        path = "${config.sops.defaultSymlinkPath}/ssh3/host";
+      };
+      secrets."ssh3/user" = {
+        path = "${config.sops.defaultSymlinkPath}/ssh3/user";
+      };
     };
   };
 }
