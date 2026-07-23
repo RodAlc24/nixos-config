@@ -1,0 +1,103 @@
+@define-color bg      #282828; /* dark bg */
+@define-color bg1     #3c3836; /* bg1 */
+@define-color bg2     #504945; /* bg2 - used for the bar border */
+@define-color fg      #ebdbb2; /* light fg */
+@define-color gray    #928374; /* gray - inactive/unused elements */
+@define-color red     #fb4934; /* red - power/critical */
+@define-color green   #b8bb26; /* green - battery */
+@define-color yellow  #fabd2f; /* yellow - accent / workspace active / warning */
+@define-color blue    #83a598; /* blue - memory */
+@define-color purple  #d3869b; /* purple - disk */
+@define-color aqua    #8ec07c; /* aqua - pulseaudio */
+@define-color orange  #fe8019; /* orange - cpu */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "DejaVuSansM Nerd Font", sans-serif;
+    font-size: 15px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: @bg;
+    border-bottom: 2px solid @bg2;
+    color: @fg;
+}
+
+tooltip {
+    opacity: 0;
+}
+
+#workspaces {
+    background: transparent;
+    margin: 0 4px 0 10px;
+}
+
+#workspaces button {
+    all: unset;
+    color: @gray;
+    padding: 0 8px;
+    margin: 0 1px;
+    min-width: 12px;
+}
+
+/* unused/empty workspace */
+#workspaces button.empty {
+    color: @bg2;
+}
+
+/* used workspace (has windows, not focused) */
+#workspaces button:not(.empty):not(.active) {
+    color: @fg;
+}
+
+/* current/active workspace */
+#workspaces button.active {
+    color: @yellow;
+    font-weight: bold;
+}
+
+#workspaces button:hover {
+    color: @yellow;
+}
+
+/* ---------- Clock (center) ---------- */
+#clock {
+    color: @fg;
+    font-weight: bold;
+    padding: 0 14px;
+}
+#clock:hover {
+    color: @yellow;
+}
+
+/* ---------- Right modules: flat, no boxes, distinct accent per module ---------- */
+#pulseaudio,
+#disk,
+#memory,
+#cpu,
+#battery,
+#custom-power {
+    background: transparent;
+    padding: 0 8px;
+}
+
+#pulseaudio { color: @aqua; }
+#disk       { color: @purple; }
+#memory     { color: @blue; }
+#cpu        { color: @orange; }
+#battery    { color: @green; }
+
+/* battery status still overrides with semantic color */
+#battery.warning  { color: @yellow; }
+#battery.critical { color: @red; }
+
+#custom-power {
+    color: @red;
+    margin-right: 8px;
+}
+#custom-power:hover {
+    color: @yellow;
+}
+#pulseaudio:hover {
+  color: @yellow
+}
