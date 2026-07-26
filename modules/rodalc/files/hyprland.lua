@@ -60,8 +60,10 @@ hl.config({
             inactive_border = "rgb(504945)",
         },
         layout = "dwindle",
+        no_focus_fallback = true;
     },
     dwindle = {
+        force_split = 2,
         preserve_split = true, -- You probably want this
     },
 
@@ -174,6 +176,12 @@ hl.gesture({
 ---- KEYBINDINGS ----
 ---------------------
 
+hl.config({
+  binds = {
+    allow_workspace_cycles = true;
+  }
+})
+
 local mainMod = "SUPER"
 
 -- Open apps
@@ -212,6 +220,7 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i, follow = false }))
 end
+hl.bind(mainMod .. " + TAB", hl.dsp.focus({ workspace = "previous"}))
 
 hl.bind(mainMod .. "+ N", hl.dsp.focus({ workspace = "e+1"}))
 hl.bind(mainMod .. "+ SHIFT + N", hl.dsp.focus({ workspace = "e-1"}))
