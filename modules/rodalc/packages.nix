@@ -1,6 +1,7 @@
 {
   flake.modules.homeManager.rodalc = { pkgs, ... }: {
     home.packages = with pkgs; [
+      file
       anki
       cargo
       nodejs_26
