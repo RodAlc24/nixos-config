@@ -5,7 +5,6 @@
       anki
       cargo
       nodejs_26
-      grml-zsh-config
       brightnessctl
       grim
       slurp
