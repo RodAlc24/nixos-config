@@ -22,6 +22,9 @@
 
       age
       sops
+
+      ripgrep # for nvim telescope
     ];
+    programs.direnv.enable = true;
   };
 }
