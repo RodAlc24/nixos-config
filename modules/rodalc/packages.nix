@@ -24,6 +24,10 @@
       sops
 
       ripgrep # for nvim telescope
+
+      libreoffice
+
+      networkmanagerapplet
     ];
     programs.direnv.enable = true;
   };
