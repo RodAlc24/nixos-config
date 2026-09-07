@@ -1,6 +1,13 @@
 {
   flake.modules.nixos.laptop = {
-    networking.hostName = "laptop";
-    networking.networkmanager.enable = true;
+    networking = {
+      hostName = "laptop";
+      nameservers = [
+        "10.0.0.1"
+        "1.1.1.1"
+      ];
+      networkmanager.enable = true;
+      networkmanager.dns = "none";
+    };
   };
 }

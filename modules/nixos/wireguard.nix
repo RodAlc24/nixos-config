@@ -1,19 +1,19 @@
 {
   flake.modules.nixos.laptop = {
     networking.firewall.allowedUDPPorts = [ 51820 ];
-    networking.wireguard = {
-      enable = true;
+    networking.wg-quick = {
       interfaces = {
         wg0 = {
           privateKeyFile = "/etc/wireguard/laptop_private.key";
-          ips = [ "10.0.0.2/24" ];
+          address = [ "10.0.0.2/24" ];
           listenPort = 51820;
+          dns = [ "10.0.0.1" ];
           peers = [
             {
-              name = "home-server";
               publicKey = "9vUv6DatrJehz5rlYTo81CgP6bd5eK5TykhBNBRDYFg=";
               allowedIPs = [
-                "10.0.0.0/24"
+                "0.0.0.0/0"
+                ##"10.0.0.0/24"
               ];
               endpoint = "home.rodalc.eu:51169";
               persistentKeepalive = 25;
