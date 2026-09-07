@@ -71,6 +71,9 @@ tooltip {
 }
 
 /* ---------- Right modules: flat, no boxes, distinct accent per module ---------- */
+#network.wifi,
+#network.eth,
+#custom-wireguard,
 #pulseaudio,
 #disk,
 #memory,
@@ -81,11 +84,24 @@ tooltip {
     padding: 0 8px;
 }
 
-#pulseaudio { color: @aqua; }
-#disk       { color: @purple; }
-#memory     { color: @blue; }
-#cpu        { color: @orange; }
-#battery    { color: @green; }
+#network.wifi { color: @blue; }
+#network.eth  { color: @orange; }
+#pulseaudio   { color: @purple; }
+#disk         { color: @blue; }
+#memory       { color: @orange; }
+#cpu          { color: @aqua; }
+#battery      { color: @green; }
+
+/* disconnected states fall back to critical color */
+#network.wifi.disconnected,
+#network.eth.disconnected {
+    color: @red;
+}
+
+#custom-wireguard.full  { color: @green; }
+#custom-wireguard.split { color: @orange; }
+#custom-wireguard.down  { color: @red; }
+
 
 /* battery status still overrides with semantic color */
 #battery.warning  { color: @yellow; }
@@ -98,6 +114,9 @@ tooltip {
 #custom-power:hover {
     color: @yellow;
 }
-#pulseaudio:hover {
+#pulseaudio:hover,
+#network.wifi:hover,
+#network.eth:hover,
+#custom-wireguard:hover {
   color: @yellow
 }

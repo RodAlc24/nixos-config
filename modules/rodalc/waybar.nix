@@ -11,12 +11,14 @@
           margin-bottom = 5;
           margin-left = 0;
           margin-right = 0;
-          spacing = 4;
+          spacing = 2;
 
           modules-left = [ "hyprland/workspaces" ];
           modules-center = [ "clock" ];
           modules-right = [
-            "keyboard-state"
+            "network#wifi"
+            "network#eth"
+            "custom/wireguard"
             "pulseaudio"
             "disk"
             "memory"
@@ -55,16 +57,16 @@
           "disk" = {
             format = "/ {percentage_used}%";
             path = "/";
-            tooltip-format = "{used} used / {total} total";
+            tooltip = false;
           };
 
           "memory" = {
-            format = "RAM {percentage}%";
-            tooltip-format = "{used:0.1f} GiB / {total:0.1f} GiB";
+            format = "  {percentage}%";
+            tooltip = false;
           };
 
           "cpu" = {
-            format = "CPU {usage}%";
+            format = "  {usage}%";
             tooltip = false;
           };
 
@@ -110,19 +112,36 @@
             on-click = "wlogout";
             tooltip = false;
           };
-
-          "keyboard-state" = {
-            numlock = true;
-            capslock = true;
-            format = "{name} {icon} ";
+          "network#wifi" = {
+            interface = "wlp1s0";
+            format = "{essid} {icon}";
+            format-alt = "{ipaddr} {icon}";
             format-icons = {
-              "locked" = " ";
-              "unlocked" = " ";
+              "disconnected" = "󰖪 ";
+              "wifi" = [
+                "󰤯 "
+                "󰤟 "
+                "󰤢 "
+                "󰤨 "
+              ];
             };
-            binding-keys = [
-              1
-              69
-            ];
+            interval = 5;
+            tooltip = false;
+          };
+          "network#eth" = {
+            interface = "enp3s0f3u2u4c2";
+            format = "󰈀 ";
+            format-alt = "{ipaddr} 󰈀 ";
+            format-disconnected = "";
+            tooltip = false;
+          };
+          "custom/wireguard" = {
+            exec = "wg-status";
+            return-type = "json";
+            interval = 10;
+            signal = 8;
+            on-click = "wg-menu";
+            tooltip = false;
           };
         };
       };
