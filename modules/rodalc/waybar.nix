@@ -105,12 +105,16 @@
               "warning" = 30;
               "critical" = 15;
             };
+            events = {
+              "on-discharging-critical" = "gotify push -t \"Batería baja\" \"Conectar el cargador\"";
+            };
           };
 
           "custom/power" = {
             format = "⏻";
             on-click = "wlogout";
             tooltip = false;
+
           };
           "network#wifi" = {
             interface = "wlp1s0";
