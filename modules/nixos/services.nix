@@ -7,5 +7,6 @@
       nssmdns4 = true;
       openFirewall = true;
     };
+    virtualisation.docker.enable = true;
   };
 }
