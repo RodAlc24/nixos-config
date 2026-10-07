@@ -28,6 +28,9 @@
       libreoffice
 
       networkmanagerapplet
+      elan
+
+      opencode
     ];
     programs.direnv.enable = true;
   };
